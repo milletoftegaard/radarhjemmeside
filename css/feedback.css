@@ -455,3 +455,41 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
         object-fit: cover;
         z-index: -1;
       }
+
+      @media screen and (max-width: 768px) {
+        form {
+            width: 90%; /* Adjust width for phones */
+            padding: 30px;
+        }
+    
+        h2 {
+            font-size: 2em; /* Adjust heading size for phones */
+        }
+    
+        label {
+            font-size: 1em; /* Adjust label size for phones */
+        }
+    
+        button {
+            font-size: 18px; /* Adjust button font size */
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        form {
+            width: 95%; /* Use almost full width for small phones */
+            padding: 20px;
+        }
+    
+        h2 {
+            font-size: 1.8em; /* Further adjust heading size */
+        }
+    
+        label {
+            font-size: 0.9em; /* Smaller label size */
+        }
+    
+        button {
+            font-size: 16px; /* Smaller button font size */
+        }
+    }

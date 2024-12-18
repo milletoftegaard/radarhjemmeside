@@ -31,7 +31,6 @@ width: 100%;
 position: sticky; /* Makes the navbar stick to the top */
     top: 0; /* Sticks to the top of the viewport */
     z-index: 1000; /* Ensures it stays above other elements */
-    background-color: var(--black); /* Navbar background color */
     width: 100%; /* Full width */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
@@ -318,19 +317,6 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
     }
 }
 
-.background {
-   width: 96rem;
-height: auto; /* Maintains the aspect ratio */
-}
-
-.overlay {
-    position: absolute;
-    top: 80%;         /* Center the small image vertically */
-    left: 50%;        /* Center the small image horizontally */
-    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
-    width: 60%;       /* Adjust size of the top image */
-    height: auto;     /* Maintain aspect ratio of the top image */
-}
 
 h2 {
     font-family: "Bebas Neue", sans-serif;
@@ -358,7 +344,7 @@ h4 {
 /* Styling for the button */
 .button {
     position: absolute; /* Position relative to body */
-    top: 160%; /* 50% from top */
+    top: 73%; /* 50% from top */
     left: 50%; /* 50% from left */
     transform: translate(-50%, -50%); /* Adjust to center the button */
     padding: 15px 30px;
@@ -508,39 +494,6 @@ h4 {
         top: 30%;
     }
 
-    .garderobe, .venmed, .sparprocent {
-        width: 35%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .garderobe {
-        position: absolute;
-        top: 20%;         /* Center the small image vertically */
-        left: 15%;        /* Center the small image horizontally */
-        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
-        width: 20%;       /* Adjust size of the top image */
-        height: auto;     /* Maintain aspect ratio of the top image */
-    }
-
-    .venmed {
-        position: absolute;
-        top: 25%;         /* Center the small image vertically */
-        left: 80%;        /* Center the small image horizontally */
-        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
-        width: 18%;       /* Adjust size of the top image */
-        height: auto;     /* Maintain aspect ratio of the top image */
-    }
-
-    .sparprocent {
-        position: absolute;
-        top: 40%;         /* Center the small image vertically */
-        left: 15%;        /* Center the small image horizontally */
-        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
-        width: 12%;       /* Adjust size of the top image */
-        height: auto;     /* Maintain aspect ratio of the top image */
-    }
-
     h2 {
         font-size: 3.5rem;
         top: 10%;
@@ -620,4 +573,15 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
     }
 }
 
+}
+
+.image-container {
+    text-align: center; /* Centers the image horizontally */
+    padding: 10px; /* Optional: Adds some spacing around the image */
+}
+
+img {
+    max-width: 100%; /* Ensures the image scales responsively */
+    height: auto; /* Maintains the image's aspect ratio */
+    display: inline-block; /* Ensures proper alignment */
 }

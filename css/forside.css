@@ -253,7 +253,7 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
         width: 30px;
         height: 4px;
         background-color: white;
-        margin: 5px 0;
+        margin: 6px 0;
     }
 
     .burger-toggle {
@@ -291,6 +291,8 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
     .menu li:hover ul {
         display: block; /* Show sub-menu when hovering */
     }
+
+  
 }
 
 /* Desktop-specific styles */
@@ -316,6 +318,8 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
     .menu li:hover ul {
         display: block;
     }
+
+ 
 }
 
 
@@ -335,51 +339,6 @@ h1 {
     padding-top: 2rem;
 }
 
-h2 {
-    position: absolute;
-    top: 80%;
-    left: 37%;
-    transform: translate(-50%, -50%);
-    color: rgba(96, 96, 96, 0); /* Semi-transparent white text */
-    font-size: 7rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.533); /* Adds subtle shadow for readability */
-    z-index: 1;
-    margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    line-height: 1; /* No extra spacing between lines */
-  }
-
-  .highlight {
-padding-top: 12rem;
-    position: absolute;
-    top: 45%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    color: rgba(96, 96, 96, 0); /* Semi-transparent white text */
-    font-size: 10rem;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.993); /* Adds subtle shadow for readability */
-    z-index: 1;
-    margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  p {
-    text-align: center; /* Sentraliserer teksten */
-    font-size: 2.3rem; /* Litt større skriftstørrelse for enkel lesbarhet */
-    color: #91b1ce; /* Mørkegrå tekst */
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    padding-top: 7rem;
-   padding-bottom: 10rem;
-
-  }
 
   h5 {
     padding-top: 2rem;
@@ -431,38 +390,52 @@ padding-top: 12rem;
     -ms-overflow-style: none; /* For Internet Explorer and Edge */
     scrollbar-width: none; /* For Firefox */
   }
-  
-  h2 {
-    position: absolute;
-    top: 250%;
-    left: 40%;
-    color: rgb(255, 255, 255); /* Semi-transparent white text */
-    font-size: 5rem;
-    font-weight: bold;
-    z-index: 1;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+
+  /* Responsive Design */
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 5rem; /* Adjust heading size for tablets */
+    }
+
+    h5 {
+        font-size: 1.8rem; /* Slightly smaller text for tablets */
+    }
+
+    .scroll-section img {
+        height: 14rem; /* Reduce image height for smaller devices */
+    }
 }
 
-.overlay {
-    position: absolute;
-    top: 275%;         /* Center the small image vertically */
-    left: 70%;        /* Center the small image horizontally */
-    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
-    width: 60%;       /* Adjust size of the top image */
-    height: auto;     /* Maintain aspect ratio of the top image */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 4rem; /* Further reduce heading size for phones */
+        padding: 0.5rem;
+    }
+
+    h5 {
+        font-size: 1.6rem; /* Adjust text size for phones */
+    }
+
+    .scroll-section img {
+        height: 15rem; /* Reduce image height further for phones */
+    }
 }
 
-h3 {
-    position: absolute;
-    top: 26%;
-    left: 10%;
-    color: rgb(255, 255, 255); /* Semi-transparent white text */
-    font-size: 15rem;
-    font-weight: bold;
-    z-index: 1;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 3.5rem; /* Smaller heading for small phones */
+    }
+
+    h5 {
+        font-size: 1.4rem; /* Smaller text size for small phones */
+    }
+
+    .scroll-section img {
+        height: 20rem; /* Adjust image height for small phones */
+    }
+
+    .scroll-section {
+        gap: 10px; /* Reduce spacing between scroll items */
+        padding: 10px; /* Reduce overall padding */
+    }
 }
