@@ -25,32 +25,40 @@
             </div>
 
         </section>
-        <nav class="nav-bar">
-            <ul>
-                <li>   <img src="./img/radarlogo.png" alt="Radar logo i hvid" class="logo"></li>
-                <li><a href="index.html">Hjem</a></li>
-                <li><a href="./koncerter.html">Koncerter</a>
-                    <ul class="sub-menus">
-                    </ul>
-                </li>
-                <li><a href="./omos.html">Om os</a>
-                <ul class="sub-menus">
-                    <li><a href="./stoet.html">Medlemsfordele</a></li>
-                    <li><a href="./feedback.html">feedback</a></li>
-                </ul>
-                </li>
-                <li><a href="./hoermere.html">Hør mere</a>
-                <ul class="sub-menus">
-                    <li><a href="./washere.html">WAS HERE</a></li>
-                    <li><a href="./backstage.html">Backstage</a></li>
-                </ul>
-                </li>
-                <li><a href="./merch.html">merch</a>
-                    <li><a href="./events.html">events</a>
-                </ul>
-                </ul>
+  <!-- Burger Menu Navigation -->
+  <nav class="burger-nav">
+    <input type="checkbox" id="burger-toggle" class="burger-toggle">
+    <label for="burger-toggle" class="burger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+
+    <!-- Main Navigation Menu -->
+    <ul class="menu">
+        <li>
+            <img src="./img/radarlogo.png" alt="Radar logo i hvid" class="logo">
+        </li>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="./koncerter.html">Koncerter</a>
+            <ul class="sub-menu">
+                <!-- Add items under "Koncerter" here -->
             </ul>
-        </nav>
+        </li>
+        <li><a href="./feedback.html">Feedback</a>
+            <ul class="sub-menu">
+                <!-- Add items under "Feedback" here -->
+            </ul>
+        </li>
+        <li><a href="./underopbygning.html">Hør mere</a>
+            <ul class="sub-menu">
+                <li><a href="./stoet.html">Medlemsfordele</a></li>
+            </ul>
+        </li>
+        <li><a href="./merch.html">Merch</a></li>
+        <li><a href="./events.html">Events</a></li>
+    </ul>
+</nav>
 
     </header>
    
