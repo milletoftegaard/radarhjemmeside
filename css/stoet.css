@@ -149,7 +149,7 @@ nav li:hover ul.sub-menus {
 	display: block
 }
 nav ul.sub-menus a:hover{
-	background: var(--dark-grey);
+	background: lightblue;
 	color: var(--white);
 }
 
@@ -252,7 +252,7 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
         width: 30px;
         height: 4px;
         background-color: white;
-        margin: 5px 0;
+        margin: 3px 0;
     }
 
     .burger-toggle {
@@ -318,15 +318,50 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
 }
 
 
-h2 {
+h1 {
+
+    color: white; /* Light blue color */
+    font-size: 8rem; /* Large size for impact */
+    margin-bottom: 20px;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    line-height: 1; /* No extra spacing between lines */
+    font-weight: 700;
     text-align: center;
-    font-size: 8rem;
-    color: var(--white);
-    padding-top: 2rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-top: 20px;
+    animation: floatUp 3s ease-in-out infinite; /* Animation for floating effect */
+}
+
+/* Adding a neon glowing effect */
+h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00c4cc, #7ed6ff, #a3d8f4); /* Gradient of light blues */
+    z-index: -1;
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    background-clip: text;
+    animation: glowing 1.5s ease-in-out infinite alternate; /* Glowing effect */
+}
+
+/* Neon glow animation */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+    100% {
+        text-shadow: 0 0 10px #7ed6ff, 0 0 20px #7ed6ff, 0 0 30px #7ed6ff, 0 0 40px #7ed6ff, 0 0 50px #7ed6ff, 0 0 60px #7ed6ff;
+    }
+}
+/* Hover effect to make the text interactive */
+h1:hover {
+    color: white; /* Change color to a deeper blue */
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px lightblue; /* Enhanced glowing effect */
+    transform: scale(1.05); /* Rotate and scale on hover */
 }
 
 h4 {

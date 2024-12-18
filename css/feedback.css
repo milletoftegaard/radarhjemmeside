@@ -150,7 +150,7 @@ nav li:hover ul.sub-menus {
 display: block
 }
 nav ul.sub-menus a:hover{
-background: var(--dark-grey);
+background: lightblue;
 color: var(--white);
 }
 
@@ -253,7 +253,7 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
       width: 30px;
       height: 4px;
       background-color: white;
-      margin: 5px 0;
+      margin: 3px 0;
   }
 
   .burger-toggle {

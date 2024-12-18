@@ -91,7 +91,7 @@ header nav ul li a{             /*Styling af links i navigationsbar*/
 }
 
 nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
-  background: var(--dark-grey);
+  background: lightblue;
   color: var(--white);
 }
 
@@ -253,7 +253,7 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
       width: 30px;
       height: 4px;
       background-color: white;
-      margin: 5px 0;
+      margin: 3px 0;
   }
 
   .burger-toggle {
