@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: #222222;
+    background-color: #323230;
 }
 
 :root{                              /*Definere css variables for farver for nemmere tilgang*/
@@ -28,15 +28,23 @@ body {
 header{                            /*Bestemt layout for header med brug af flexbox*/
 z-index: 1000;
 width: 100%;
+position: sticky; /* Makes the navbar stick to the top */
+    top: 0; /* Sticks to the top of the viewport */
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: var(--black); /* Navbar background color */
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
 
 .logo {
     width: 150px;
     height: auto;
+    padding-left: 20px;
+    padding-top: 7px;
 }
 
 #logo{
-    padding: 0.938rem;
+    padding: 1rem;
     width: 0.000525rem;
 }
 
@@ -173,7 +181,7 @@ nav ul.sub-menus a:hover{
     letter-spacing: 2px;
 }
 
-footer {                         /*Styling for footer*/
+footer {                            /*Styling for footer*/
     background-color: var(--light-grey);
     color: var(--black);
     text-align: center;
@@ -184,11 +192,13 @@ footer {                         /*Styling for footer*/
     align-items: center;
     justify-content: center;
     font-family: big-noodle;
+        z-index: 2;
 }
 
-footer img{                         /*Styling for logoet under footer*/
+footer img{    
+    padding-top: 10rem;                     /*Styling for logoet under footer*/
     padding-bottom: 2%;
-    width: 25rem;
+    width: 20rem;
 }
 
 footer nav ul {                     /*Styling footers navigationsbar*/
@@ -214,6 +224,97 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
 @media screen and (max-width: 768px){
     .nav-bar{
         display: none;
+    }
+}
+
+.burger-toggle {
+    display: none; /* Hides the checkbox entirely */
+}
+
+/* Show dropdown on hover (desktop only) */
+@media (min-width: 769px) {
+    nav ul li:hover > ul {
+        display: block;
+    }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 15px;
+        background-color: var(--black);
+        border-radius: 5px;
+    }
+
+    .burger-menu .bar {
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .burger-toggle {
+        display: none; /* Hide checkbox input */
+    }
+
+    .menu {
+        display: none; /* Hide the menu initially */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: var(--black);
+        z-index: 1000;
+    }
+
+    .menu li {
+        text-align: center;
+        border-bottom: 1px solid var(--dark-grey);
+    }
+
+    .menu li a {
+        display: block;
+    }
+
+    .burger-toggle:checked + .burger-menu + .menu {
+        display: flex;
+    }
+
+    .menu li ul {
+        display: none; /* Hide sub-menus by default */
+    }
+
+    .menu li:hover ul {
+        display: block; /* Show sub-menu when hovering */
+    }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Hide burger menu */
+    }
+
+    .menu {
+        display: flex; /* Show full menu on desktop */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menu li {
+        padding: 0 15px;
+    }
+
+    .menu li ul {
+        display: none;
+    }
+
+    .menu li:hover ul {
+        display: block;
     }
 }
 
