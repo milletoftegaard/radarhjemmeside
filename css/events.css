@@ -1,0 +1,384 @@
+@font-face {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 15px;
+    
+}
+
+body {
+    background-color: #323230;
+}
+
+:root{                              /*Definere css variables for farver for nemmere tilgang*/
+    --white: #ffffff;
+    --orange: #ff9327;
+    --dark-grey: #222222;
+    --black: #000000;
+    --light-grey: #cecfca;
+    --mid-white: #f4f4f4;
+}
+
+header{                            /*Bestemt layout for header med brug af flexbox*/
+z-index: 1000;
+width: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+#logo{
+    padding: 0.938rem;
+    width: 0.000525rem;
+}
+
+.icon{
+    width: 1.875rem;
+    margin: 0.625rem;
+}
+
+header section{                         /*Definere placering af logo og search-icon, dermed baggrundsfarve*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: 10;
+}
+
+header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: var(--black);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header nav ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+    padding: 0;
+}
+
+header nav ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 1.55rem;
+    padding: 1.5rem;
+    color: var(--white);
+    display: block;
+    background: var(--black);
+}
+
+nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-grey);
+    color: var(--white);
+}
+
+nav ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--#caf0f8);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+nav ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 12.5rem;
+    top: 0;
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+nav ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+nav ul.sub-menus a {
+    font-size: 1.5rem;
+	color: #a1d1e7
+	
+}
+
+nav li:hover ul.sub-menus {
+	display: block
+}
+nav ul.sub-menus a:hover{
+	background: var(--dark-grey);
+	color: var(--white);
+}
+
+#wrapper {
+    min-height: 100%;               /*Definere kontents højde, dette sørge for en sticky footer der reagere med kontentet, dermed forbliver den i bunden af siden under alle forhold*/
+    display: flex;
+    flex-direction: column;
+}
+
+#top{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 25px;
+    z-index: 9;
+    letter-spacing: 10em;
+}
+
+#top a{                           /*Styling for links i top*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: serif;
+    font-weight: 300;
+    font-family: big-noodle;
+    letter-spacing: 2px;
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: var(--black);
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+        z-index: 2;
+}
+
+footer img{    
+    padding-top: 10rem;                     /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 20rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Events Container */
+  .events-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  
+  /* Event Card */
+  .event-card {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    width: calc(50% - 15px); /* Two cards per row */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    transform: perspective(1000px);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .event-card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+  }
+  
+  .event-card .event-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  
+  .event-card:hover .event-background {
+    transform: scale(1.05);
+  }
+  
+  .event-card .event-content {
+    text-align: center;
+    color: #333;
+    z-index: 1;
+    margin-top: 30px;
+  }
+  
+  .event-card h3 {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .event-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .event-details {
+    margin-top: 20px;
+  }
+  
+  .event-details h4 {
+    font-size: 18px;
+    color: #2b5783;
+    font-weight: bold;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    padding-bottom: 20px;
+  }
+  
+  .order-btn {
+    background-color: #1a4f79;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-btn:hover {
+    background-color: #4b6e8c;
+  }
+  
+  /* Event Image */
+  .event-image {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .event-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Parallax Effect on Scroll */
+  .event-background {
+    background-image: url('./img/parallax-image.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .event-card {
+    will-change: transform;
+  }
+  
+  /* Parallax Effect for Scrolling */
+  @keyframes parallax {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 40px); /* Create parallax effect */
+    }
+  }
+  
+  .event-card .event-background {
+    animation: parallax 5s infinite alternate;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .events-container {
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .event-card {
+      width: 100%; /* Full width on mobile */
+      margin-bottom: 20px;
+    }
+  
+    .order-btn {
+      width: 100%;
+      padding: 14px 18px;
+    }
+  }

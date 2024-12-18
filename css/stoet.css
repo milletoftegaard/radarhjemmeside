@@ -1,0 +1,524 @@
+@font-face {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 15px;
+    
+}
+
+body {
+    background-color: #323230;
+}
+
+:root{                              /*Definere css variables for farver for nemmere tilgang*/
+    --white: #ffffff;
+    --orange: #ff9327;
+    --dark-grey: #222222;
+    --black: #000000;
+    --light-grey: #cecfca;
+    --mid-white: #f4f4f4;
+}
+
+header{                            /*Bestemt layout for header med brug af flexbox*/
+z-index: 1000;
+width: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+#logo{
+    padding: 0.938rem;
+    width: 0.000525rem;
+}
+
+.icon{
+    width: 1.875rem;
+    margin: 0.625rem;
+}
+
+header section{                         /*Definere placering af logo og search-icon, dermed baggrundsfarve*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: 10;
+}
+
+header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: var(--black);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header nav ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+    padding: 0;
+}
+
+header nav ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 1.55rem;
+    padding: 1.5rem;
+    color: var(--white);
+    display: block;
+    background: var(--black);
+}
+
+nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-grey);
+    color: var(--white);
+}
+
+nav ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--#caf0f8);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+nav ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 12.5rem;
+    top: 0;
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+nav ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+nav ul.sub-menus a {
+    font-size: 1.5rem;
+	color: #a1d1e7
+	
+}
+
+nav li:hover ul.sub-menus {
+	display: block
+}
+nav ul.sub-menus a:hover{
+	background: var(--dark-grey);
+	color: var(--white);
+}
+
+#wrapper {
+    min-height: 100%;               /*Definere kontents højde, dette sørge for en sticky footer der reagere med kontentet, dermed forbliver den i bunden af siden under alle forhold*/
+    display: flex;
+    flex-direction: column;
+}
+
+#top{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 25px;
+    z-index: 9;
+    letter-spacing: 10em;
+}
+
+#top a{                           /*Styling for links i top*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: serif;
+    font-weight: 300;
+    font-family: big-noodle;
+    letter-spacing: 2px;
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: var(--black);
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+        z-index: 2;
+}
+
+footer img{    
+    padding-top: 10rem;                     /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 20rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+.background {
+   width: 96rem;
+height: auto; /* Maintains the aspect ratio */
+}
+
+.overlay {
+    position: absolute;
+    top: 80%;         /* Center the small image vertically */
+    left: 50%;        /* Center the small image horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+    width: 60%;       /* Adjust size of the top image */
+    height: auto;     /* Maintain aspect ratio of the top image */
+}
+
+h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1; /* No extra spacing between lines */
+    text-align: center;
+    font-size: 8rem;
+    color: var(--white);
+}
+
+h4 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1; /* No extra spacing between lines */
+    font-size: 3rem; 
+    text-align: center;
+    color: white;
+    padding-top: 3 rem;
+    padding-bottom: 10rem;
+
+}
+
+/* Styling for the button */
+.button {
+    position: absolute; /* Position relative to body */
+    top: 160%; /* 50% from top */
+    left: 50%; /* 50% from left */
+    transform: translate(-50%, -50%); /* Adjust to center the button */
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 3.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+.button:hover {
+    background-color: #f4efc2; /* Darker color on hover */
+}
+
+.garderobe {
+    position: absolute;
+    top: 60%;         /* Center the small image vertically */
+    left: 20%;        /* Center the small image horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+    width: 20%;       /* Adjust size of the top image */
+    height: auto;     /* Maintain aspect ratio of the top image */
+}
+
+
+.venmed {
+    position: absolute;
+    top: 75%;         /* Center the small image vertically */
+    left: 80%;        /* Center the small image horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+    width: 18%;       /* Adjust size of the top image */
+    height: auto;     /* Maintain aspect ratio of the top image */
+}
+
+.sparprocent {
+    position: absolute;
+    top: 115%;         /* Center the small image vertically */
+    left: 20%;        /* Center the small image horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+    width: 12%;       /* Adjust size of the top image */
+    height: auto;     /* Maintain aspect ratio of the top image */
+}
+
+@media screen and (max-width: 1024px) {
+    /* Tablet styles */
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    header nav ul li {
+        padding: 0.5rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.3rem;
+        padding: 1rem;
+    }
+
+    #top {
+        font-size: 18px;
+        letter-spacing: 5em;
+        bottom: 10px;
+    }
+
+    footer img {
+        width: 18rem;
+    }
+
+    .background, .overlay, .garderobe, .venmed, .sparprocent {
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay {
+        top: 40%;
+        width: 80%;
+    }
+
+    .garderobe {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 40%;
+        width: 15%;
+    }
+
+    .venmed {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+        width: 15%;
+    }
+
+    .sparprocent {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 60%;
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* iPhone and smaller devices */
+    .nav-bar {
+        display: none;
+    }
+
+    header section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        display: block;
+        text-align: left;
+    }
+
+    header nav ul li {
+        width: 100%;
+    }
+
+    header nav ul li a {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    #top {
+        font-size: 18px;
+        letter-spacing: 3em;
+    }
+
+    footer img {
+        width: 16rem;
+    }
+
+    .background {
+        margin-top: 2rem;
+    }
+
+    .overlay {
+        width: 80%;
+        top: 30%;
+    }
+
+    .garderobe, .venmed, .sparprocent {
+        width: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .garderobe {
+        position: absolute;
+        top: 20%;         /* Center the small image vertically */
+        left: 15%;        /* Center the small image horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+        width: 20%;       /* Adjust size of the top image */
+        height: auto;     /* Maintain aspect ratio of the top image */
+    }
+
+    .venmed {
+        position: absolute;
+        top: 25%;         /* Center the small image vertically */
+        left: 80%;        /* Center the small image horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+        width: 18%;       /* Adjust size of the top image */
+        height: auto;     /* Maintain aspect ratio of the top image */
+    }
+
+    .sparprocent {
+        position: absolute;
+        top: 40%;         /* Center the small image vertically */
+        left: 15%;        /* Center the small image horizontally */
+        transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+        width: 12%;       /* Adjust size of the top image */
+        height: auto;     /* Maintain aspect ratio of the top image */
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        top: 10%;
+        left: 50%;
+    }
+
+    h4 {
+        font-size: 2rem;
+        padding-top: 2rem;
+    }
+
+.button {
+    position: absolute; /* Position relative to body */
+    top: 52%; /* 50% from top */
+    left: 50%; /* 50% from left */
+    transform: translate(-50%, -50%); /* Adjust to center the button */
+    padding: 10px 30px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+.button:hover {
+    background-color: #f4efc2; /* Darker color on hover */
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+        z-index: 2;
+}
+
+footer img{                         /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 5rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+}

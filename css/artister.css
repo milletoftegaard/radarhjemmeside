@@ -1,0 +1,423 @@
+@font-face {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 15px;
+    
+}
+
+body {
+    background-color: #323230;
+}
+
+:root{                              /*Definere css variables for farver for nemmere tilgang*/
+    --white: #ffffff;
+    --orange: #ff9327;
+    --dark-grey: #222222;
+    --black: #000000;
+    --light-grey: #cecfca;
+    --mid-white: #f4f4f4;
+}
+
+header{                            /*Bestemt layout for header med brug af flexbox*/
+z-index: 1000;
+width: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+#logo{
+    padding: 0.938rem;
+    width: 0.000525rem;
+}
+
+.icon{
+    width: 1.875rem;
+    margin: 0.625rem;
+}
+
+header section{                         /*Definere placering af logo og search-icon, dermed baggrundsfarve*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: 10;
+}
+
+header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: var(--black);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header nav ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+    padding: 0;
+}
+
+header nav ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 1.55rem;
+    padding: 1.5rem;
+    color: var(--white);
+    display: block;
+    background: var(--black);
+}
+
+nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-grey);
+    color: var(--white);
+}
+
+nav ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--#caf0f8);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+nav ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 12.5rem;
+    top: 0;
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+nav ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+nav ul.sub-menus a {
+    font-size: 1.5rem;
+	color: #a1d1e7
+	
+}
+
+nav li:hover ul.sub-menus {
+	display: block
+}
+nav ul.sub-menus a:hover{
+	background: var(--dark-grey);
+	color: var(--white);
+}
+
+#wrapper {
+    min-height: 100%;               /*Definere kontents højde, dette sørge for en sticky footer der reagere med kontentet, dermed forbliver den i bunden af siden under alle forhold*/
+    display: flex;
+    flex-direction: column;
+}
+
+#top{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 25px;
+    z-index: 9;
+    letter-spacing: 10em;
+}
+
+#top a{                           /*Styling for links i top*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: serif;
+    font-weight: 300;
+    font-family: big-noodle;
+    letter-spacing: 2px;
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: var(--black);
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+        z-index: 2;
+}
+
+footer img{    
+    padding-top: 10rem;                     /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 20rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+
+/* Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 2rem;
+    animation: fadeIn 1s ease-out;
+    padding-top: 2rem;
+}
+
+/* Artist Info */
+.artist-info {
+    flex: 1;
+    max-width: 70%;
+    background-color: #f4f8fb;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artist-info:hover {
+    transform: translateY(-10px);
+}
+
+.artist-info h1 {
+    font-size: 4rem;
+    color: #a3cef1;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.artist-info h1:hover {
+    color: #86c8f1;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.artist-info .bio {
+    margin-top: 2rem;
+    color: #4f5b66;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.artist-info .bio:hover {
+    color: #1d3557;
+}
+
+.artist-info .social-media {
+    margin-top: 2rem;
+}
+
+.artist-info .social-media a {
+    text-decoration: none;
+    color: #5f81b0;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.artist-info .social-media a:hover {
+    color: #457b9d;
+}
+
+/* Artist Image */
+.artist-image {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInImage 1.2s ease-in-out forwards;
+}
+
+.artist-image img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artist-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Concert Info */
+.concert-info {
+    flex: 1;
+    max-width: 30%;
+    background-color: #e9eff100;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+
+.concert-info h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.concert-info h2:hover {
+    color: #447c9e;
+}
+
+.concert-info p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.concert-info p:hover {
+    color: #ffffff;
+}
+
+.concert-info a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 2rem;
+}
+
+.concert-info a:hover {
+    color: #457b9d;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Simple Button Styling */
+.button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #457b9d; /* Soft blue background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.button:hover {
+    background-color: #1d3557; /* Darker blue on hover */
+    transform: translateY(-3px); /* Lift the button on hover */
+}
+
+.button:active {
+    background-color: #1d3557; /* Maintain the darker blue on click */
+    transform: translateY(0); /* Reset the lift effect when clicked */
+}
+
+.button:focus {
+    outline: none; /* Remove the default outline when clicked */
+}

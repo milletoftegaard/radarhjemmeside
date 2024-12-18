@@ -1,0 +1,439 @@
+@font-face {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 15px;
+    
+}
+
+body {
+    background-color: #222222;
+}
+
+:root{                              /*Definere css variables for farver for nemmere tilgang*/
+    --white: #ffffff;
+    --orange: #ff9327;
+    --dark-grey: #222222;
+    --black: #000000;
+    --light-grey: #cecfca;
+    --mid-white: #f4f4f4;
+}
+
+header{                            /*Bestemt layout for header med brug af flexbox*/
+z-index: 1000;
+width: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+#logo{
+    padding: 0.938rem;
+    width: 0.000525rem;
+}
+
+.icon{
+    width: 1.875rem;
+    margin: 0.625rem;
+}
+
+header section{                         /*Definere placering af logo og search-icon, dermed baggrundsfarve*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: 10;
+}
+
+header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: var(--black);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header nav ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+    padding: 0;
+}
+
+header nav ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 1.55rem;
+    padding: 1.5rem;
+    color: var(--white);
+    display: block;
+    background: var(--black);
+}
+
+nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-grey);
+    color: var(--white);
+}
+
+nav ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--#caf0f8);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+nav ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 12.5rem;
+    top: 0;
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+nav ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+nav ul.sub-menus a {
+    font-size: 1.5rem;
+	color: #a1d1e7
+	
+}
+
+nav li:hover ul.sub-menus {
+	display: block
+}
+nav ul.sub-menus a:hover{
+	background: var(--dark-grey);
+	color: var(--white);
+}
+
+#wrapper {
+    min-height: 100%;               /*Definere kontents højde, dette sørge for en sticky footer der reagere med kontentet, dermed forbliver den i bunden af siden under alle forhold*/
+    display: flex;
+    flex-direction: column;
+}
+
+#top{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 25px;
+    z-index: 9;
+    letter-spacing: 10em;
+}
+
+#top a{                           /*Styling for links i top*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: serif;
+    font-weight: 300;
+    font-family: big-noodle;
+    letter-spacing: 2px;
+}
+
+footer {                         /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: var(--black);
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+}
+
+footer img{                         /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 25rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+/* Menu Styling */
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--light-blue); /* Light Blue background */
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto;
+    max-width: 1300px;
+    gap: 40px;
+}
+
+/* Image Styling */
+.content img {
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Article Section */
+.content article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+    padding: 30px;
+    background-color: var(--white); /* White background for articles */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Styling */
+.content h3 {
+    padding: 10px 0;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dark-grey); /* Dark Grey for headings */
+}
+
+/* Subtitle Styling */
+.content h4 {
+    color: var(--light-blue); /* Light Blue for subheadings */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+}
+
+/* Description Styling */
+.content p {
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark-grey); /* Dark Grey text for paragraph */
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Button Styling */
+.order-btn {
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    background-color: var(--light-blue); /* Light Blue button */
+    color: var(--white); /* White text on button */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.order-btn:hover {
+    background-color: var(--dark-grey); /* Dark Grey on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effects for the button when focused */
+.order-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(173, 216, 230, 0.5); /* Light Blue focus outline */
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content article {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .order-btn {
+        font-size: 1.1rem;
+        padding: 10px 25px;
+    }
+}
+
+/* Variable Colors */
+:root {
+    --light-blue: #353535; /* Light Blue */
+    --dark-grey: #8caec3; /* Dark Grey */
+    --white: #FFFFFF; /* White */
+}
+
+/* Responsive Styling */
+
+/* For tablets (1024px and below) */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content article {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .order-btn {
+        font-size: 1.1rem;
+        padding: 10px 25px;
+    }
+}
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content article {
+        max-width: 90%;
+    }
+
+    .content div img {
+        width: 80%;
+    }
+}
+
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .content {
+        padding: 10px;
+    }
+
+    .order-btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .content div img {
+        width: 100%;
+    }
+}
+
+
+
+.genre-button {
+    display: inline-block; /* Allows buttons to align horizontally */
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 10px; /* Spacing between buttons */
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+
+}
+
+h1 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-size: 4rem;
+}

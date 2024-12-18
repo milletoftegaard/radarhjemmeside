@@ -1,0 +1,368 @@
+@font-face {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-size: 15px;
+    
+}
+
+body {
+    background-color: #323230;
+}
+
+:root{                              /*Definere css variables for farver for nemmere tilgang*/
+    --white: #ffffff;
+    --orange: #ff9327;
+    --dark-grey: #222222;
+    --black: #000000;
+    --light-grey: #cecfca;
+    --mid-white: #f4f4f4;
+}
+
+header{                            /*Bestemt layout for header med brug af flexbox*/
+z-index: 1000;
+width: 100%;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+#logo{
+    padding: 0.938rem;
+    width: 0.000525rem;
+}
+
+.icon{
+    width: 1.875rem;
+    margin: 0.625rem;
+}
+
+header section{                         /*Definere placering af logo og search-icon, dermed baggrundsfarve*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    z-index: 10;
+}
+
+header nav {                         /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: var(--black);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header nav ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+header nav ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+    padding: 0;
+}
+
+header nav ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 1.55rem;
+    padding: 1.5rem;
+    color: var(--white);
+    display: block;
+    background: var(--black);
+}
+
+nav ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-grey);
+    color: var(--white);
+}
+
+nav ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--#caf0f8);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+nav ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    border-top: 0.5px solid var(--dark-grey);
+}
+
+nav ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 12.5rem;
+    top: 0;
+}
+
+nav ul li:focus-within > ul,
+nav ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}
+nav ul.sub-menus li {
+	display: block;
+	text-align: left;
+	width: 100%;
+}
+nav ul.sub-menus a {
+    font-size: 1.5rem;
+	color: #a1d1e7
+	
+}
+
+nav li:hover ul.sub-menus {
+	display: block
+}
+nav ul.sub-menus a:hover{
+	background: var(--dark-grey);
+	color: var(--white);
+}
+
+#wrapper {
+    min-height: 100%;               /*Definere kontents højde, dette sørge for en sticky footer der reagere med kontentet, dermed forbliver den i bunden af siden under alle forhold*/
+    display: flex;
+    flex-direction: column;
+}
+
+#top{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--orange);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 25px;
+    z-index: 9;
+    letter-spacing: 10em;
+}
+
+#top a{                           /*Styling for links i top*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: serif;
+    font-weight: 300;
+    font-family: big-noodle;
+    letter-spacing: 2px;
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: var(--black);
+    text-align: center;
+    padding: 1.25rem;
+    height: 21.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: big-noodle;
+        z-index: 2;
+}
+
+footer img{    
+    padding-top: 10rem;                     /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 20rem;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 0.938rem; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+@media screen and (max-width: 768px){
+    .nav-bar{
+        display: none;
+    }
+}
+
+video {
+    width: 100%; /* Full width of its container */
+    border-radius: 10px; /* Optional rounded corners */
+}
+
+h1 {
+    color: var(--white);
+    padding: 1rem;
+    font-size: 7rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+h2 {
+    position: absolute;
+    top: 80%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    color: rgba(96, 96, 96, 0); /* Semi-transparent white text */
+    font-size: 7rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.533); /* Adds subtle shadow for readability */
+    z-index: 1;
+    margin: 0;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1; /* No extra spacing between lines */
+  }
+
+  .highlight {
+padding-top: 12rem;
+    position: absolute;
+    top: 45%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    color: rgba(96, 96, 96, 0); /* Semi-transparent white text */
+    font-size: 10rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.993); /* Adds subtle shadow for readability */
+    z-index: 1;
+    margin: 0;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  p {
+    text-align: center; /* Sentraliserer teksten */
+    font-size: 2.3rem; /* Litt større skriftstørrelse for enkel lesbarhet */
+    color: #91b1ce; /* Mørkegrå tekst */
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    padding-top: 7rem;
+   padding-bottom: 10rem;
+
+  }
+
+  h5 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    text-align: center; /* Sentraliserer teksten */
+    font-size: 2rem; /* Litt større skriftstørrelse for enkel lesbarhet */
+    color: #696969; /* Mørkegrå tekst */
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+
+  }
+
+ /* Styles for the horizontal scroll section */
+.scroll-section {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents wrapping */
+    padding: 20px;
+    width: 100%; /* Ensures the section spans the viewport */
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+  }
+  
+  .scroll-section a {
+    display: inline-block;
+    text-decoration: none;
+    flex-shrink: 0; /* Prevents items from shrinking */
+    transition: transform 0.3s ease;
+  }
+  
+  .scroll-section img {
+    width: auto;
+    height: 18rem;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .scroll-section a:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Optional: Hide scrollbars (if needed) */
+  .scroll-section::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+  .scroll-section {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  h2 {
+    position: absolute;
+    top: 250%;
+    left: 40%;
+    color: rgb(255, 255, 255); /* Semi-transparent white text */
+    font-size: 5rem;
+    font-weight: bold;
+    z-index: 1;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.overlay {
+    position: absolute;
+    top: 275%;         /* Center the small image vertically */
+    left: 70%;        /* Center the small image horizontally */
+    transform: translate(-50%, -50%); /* Offset by half of the image's width/height */
+    width: 60%;       /* Adjust size of the top image */
+    height: auto;     /* Maintain aspect ratio of the top image */
+}
+
+h3 {
+    position: absolute;
+    top: 26%;
+    left: 10%;
+    color: rgb(255, 255, 255); /* Semi-transparent white text */
+    font-size: 15rem;
+    font-weight: bold;
+    z-index: 1;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
