@@ -399,9 +399,17 @@ h1::after {
     }
 }
 
-.opbygning {
-    padding-left: 30%;
-}
+.image-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 50vh; /* Adjust height as needed */
+    padding-bottom: 15rem;
+    padding-top: 10rem;
+  }
+  .centered {
+    max-width: 50%; /* Optional: makes the image responsive */
+  }
 
 /* Responsive Styles */
 @media (max-width: 1024px) { /* Tablets */
@@ -433,6 +441,6 @@ h1::after {
     }
 
     .opbygning {
-        padding-left: 5%; /* Minimal padding for very small screens */
+        padding-left: 20%; /* Minimal padding for very small screens */
     }
 }
