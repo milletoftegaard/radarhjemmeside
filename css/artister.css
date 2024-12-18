@@ -520,3 +520,88 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
 .button:focus {
     outline: none; /* Remove the default outline when clicked */
 }
+
+/* Responsive Layout */
+@media (max-width: 1024px) { /* For tablets */
+    .container {
+        flex-wrap: wrap; /* Ensure wrapping */
+        gap: 1.5rem; /* Adjust spacing */
+        padding: 1.5rem;
+    }
+
+    .artist-info, .concert-info {
+        max-width: 100%; /* Full width for smaller screens */
+        flex: 1 1 100%;
+        padding: 1.5rem; /* Adjust padding for better fit */
+    }
+
+    .artist-info h1 {
+        font-size: 3rem; /* Slightly smaller heading size */
+    }
+
+    .concert-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .concert-info p {
+        font-size: 1.5rem;
+    }
+
+    .button {
+        font-size: 1rem; /* Adjust button text size */
+        padding: 8px 16px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px) { /* For phones */
+    .container {
+        padding: 3rem; /* Reduce padding */
+        gap: 1rem; /* Adjust gap */
+    }
+
+    .artist-info, .concert-info {
+        max-width: 100%; /* Full width */
+        padding: 1rem; /* Compact padding */
+    }
+
+    .artist-info h1 {
+        font-size: 4rem; /* Smaller headings for phones */
+        padding-left: 1rem;
+    }
+
+    .concert-info h2 {
+        font-size: 4rem;
+    }
+
+    .concert-info p {
+        font-size: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .artist-image img {
+        padding-top: 1rem;
+        max-width: 90%; /* Ensure images don't take over small screens */
+        margin: 0 auto; /* Center the image */
+    }
+
+    .button {
+        font-size: 0.9rem; /* Adjust font size further for buttons */
+        padding: 6px 12px; /* Smaller button padding */
+    }
+}
+
+@media (max-width: 480px) { /* For very small devices */
+    .artist-info h1 {
+        font-size: 4rem; /* Compact heading */
+    }
+
+    .concert-info h2, .concert-info p {
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 0.8rem; /* Smaller buttons */
+        padding: 5px 10px;
+    }
+}
