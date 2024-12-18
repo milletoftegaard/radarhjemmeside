@@ -612,3 +612,39 @@ h1::after {
         background: radial-gradient(circle, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
     }
 }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 4.5rem; /* Slightly smaller font for large tablets or small desktops */
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 4rem; /* Medium font for tablets */
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.5rem; /* Adjust for smaller tablets or large phones */
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 3rem; /* Smaller font for phones */
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2.5rem; /* Smallest size for very small devices */
+        letter-spacing: 0.5px;
+    }
+}

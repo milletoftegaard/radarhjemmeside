@@ -380,7 +380,7 @@ h4 {
 /* Styling for the button */
 .button {
     position: absolute; /* Position relative to body */
-    top: 73%; /* 50% from top */
+    top: 74%; /* 50% from top */
     left: 50%; /* 50% from left */
     transform: translate(-50%, -50%); /* Adjust to center the button */
     padding: 15px 30px;

@@ -530,11 +530,85 @@ footer nav ul li a {                /* Style for links i footer navigationsbar *
 
 }
 
+
 h1 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    color: white; /* Light blue color */
+    font-size: 5rem; /* Large size for impact */
+    margin-bottom: 20px;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    color: #FFFFFF;
-    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    animation: floatUp 3s ease-in-out infinite; /* Animation for floating effect */
+}
+
+/* Adding a neon glowing effect */
+h1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00c4cc, #7ed6ff, #a3d8f4); /* Gradient of light blues */
+    z-index: -1;
+    -webkit-background-clip: text; /* Clips the gradient to the text */
+    background-clip: text;
+    animation: glowing 1.5s ease-in-out infinite alternate; /* Glowing effect */
+}
+
+/* Neon glow animation */
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff;
+    }
+    100% {
+        text-shadow: 0 0 10px #7ed6ff, 0 0 20px #7ed6ff, 0 0 30px #7ed6ff, 0 0 40px #7ed6ff, 0 0 50px #7ed6ff, 0 0 60px #7ed6ff;
+    }
+}
+
+/* Floating up effect */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* Move slightly up */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect to make the text interactive */
+h1:hover {
+    color: white; /* Change color to a deeper blue */
+    text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px lightblue; /* Enhanced glowing effect */
+    transform: rotate(5deg) scale(1.05); /* Rotate and scale on hover */
+}
+
+/* Adding a subtle background animation */
+h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.4)); /* Subtle light to dark gradient */
+    z-index: -2;
+    animation: pulseBackground 2s ease-in-out infinite alternate; /* Pulse background effect */
+}
+
+/* Background pulse animation */
+@keyframes pulseBackground {
+    0% {
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.4));
+    }
+    100% {
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+    }
 }
